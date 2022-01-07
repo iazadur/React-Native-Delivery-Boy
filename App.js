@@ -3,8 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from './src/components/HomeScreen';
-import { Provider } from 'react-redux';
-import store from './src/redux/store';
+import OrderProvider from './src/contexts/OrderProvider';
 
 const Stack = createNativeStackNavigator();
 export default function App() {
@@ -13,17 +12,17 @@ export default function App() {
     //   <Text>Open up App.js to start working on your app!</Text>
     //   <StatusBar style="auto" />
     // </View>
-    <Provider store={store}>
+    <OrderProvider>
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen
             name="Home"
             component={HomeScreen}
-            options={{ title: 'My home' }}
+            options={{ title: 'Delivery Boy' }}
           />
         </Stack.Navigator>
       </NavigationContainer>
-    </Provider>
+    </OrderProvider>
   );
 }
 
